@@ -1,14 +1,29 @@
+import {useState} from 'react';
+import { getProductOptions } from '../../helpers/getProductOptions';
+import { OptioTypes } from '../../types/OptionTypes';
 import * as C from './styles';
 
-export const OptionsBar = () => {
+type Props = {
+    setShowMenuDD: (showMenuDD: boolean) => void;
+    setMenuName: (menuName: string) => void;
+    setOptionList: (optionList: OptioTypes) => void;
+}
+export const OptionsBar = ({setShowMenuDD, setMenuName, setOptionList}: Props) => {
+
+    const handleChangeShowMenuDropDown = () => {
+        setShowMenuDD(true);
+        setMenuName('Cachorro');
+        setOptionList(getProductOptions('Cachorro'));
+    }
+
     return (
         <C.Container>
             <ul>
-                <li>
+                <li onMouseOver={handleChangeShowMenuDropDown}>
                     <a href='/'>Cachorro</a>
                     <div className='bottom-bar'></div>
                 </li>
-                <li>
+                <li onMouseOver={handleChangeShowMenuDropDown}>
                     <a href='/'>Gatos</a>
                     <div className='bottom-bar'></div>
                 </li>

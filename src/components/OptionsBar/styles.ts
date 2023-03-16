@@ -27,7 +27,7 @@ li {
     cursor: pointer;
 
     a {
-        padding: 14px;
+        padding: 14px 10px;
         text-decoration: none;
         color: #7A7368;
 
