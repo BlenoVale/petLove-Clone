@@ -1,4 +1,6 @@
-export let CachorroOption = {
+import { OptionTypes } from "../types/OptionTypes"
+
+export const CachorroOption: OptionTypes = {
     name: 'Cachorro',
     products: [
         {
@@ -12,7 +14,7 @@ export let CachorroOption = {
     ]
 }
 
-export let GatoOption = {
+export let GatoOption: OptionTypes = {
     name: 'Gato',
     products: [
         {

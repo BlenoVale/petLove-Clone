@@ -1,17 +1,18 @@
 import { CachorroOption } from "../jsons/Options"
 import { GatoOption } from "../jsons/Options"
-import { OptioTypes } from "../types/OptionTypes"
 
 
 export const getProductOptions = (option: string) => {
-    console.log('rodou o getProductOptions');
-    if (option !== '') {
+    if (option != '') {
         switch (option) {
             case CachorroOption.name:
-                return CachorroOption.products;
+                return CachorroOption;
                 break;
             case GatoOption.name:
-                return GatoOption.products;
+                return GatoOption;
+                break;
+            default:
+                return CachorroOption;
                 break;
         }
     }

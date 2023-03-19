@@ -1,29 +1,43 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { getProductOptions } from '../../helpers/getProductOptions';
-import { OptioTypes } from '../../types/OptionTypes';
+import { OptionTypes } from '../../types/OptionTypes';
+import { MenuDropDown } from '../MenuDropDown';
 import * as C from './styles';
 
 type Props = {
+    showMenuDD: boolean;
     setShowMenuDD: (showMenuDD: boolean) => void;
+    menuName: string;
     setMenuName: (menuName: string) => void;
-    setOptionList: (optionList: OptioTypes) => void;
+    setOptionList: (optionList: OptionTypes) => void;
 }
-export const OptionsBar = ({setShowMenuDD, setMenuName, setOptionList}: Props) => {
+export const OptionsBar = ({ showMenuDD, setShowMenuDD, menuName, setMenuName, setOptionList }: Props) => {
 
-    const handleChangeShowMenuDropDown = () => {
+    const handleChangeShowMenuDropDown = (e: React.MouseEvent<HTMLLIElement>) => {
         setShowMenuDD(true);
-        setMenuName('Cachorro');
-        setOptionList(getProductOptions('Cachorro'));
+        const target = e.currentTarget as HTMLLIElement;
+        //console.log(target.id);
+        setMenuName(target.id);
+
+        let aux = getProductOptions(menuName);
+        if (aux !== undefined) {
+            setOptionList(aux);
+        }
     }
 
     return (
         <C.Container>
             <ul>
-                <li onMouseOver={handleChangeShowMenuDropDown}>
+                <li onMouseOver={handleChangeShowMenuDropDown} id='Cachorro'>
                     <a href='/'>Cachorro</a>
                     <div className='bottom-bar'></div>
+                    <MenuDropDown
+                        option={menuName}
+                        showMenuDD={showMenuDD}
+                        setShowMenuDD={setShowMenuDD}
+                    />
                 </li>
-                <li onMouseOver={handleChangeShowMenuDropDown}>
+                <li onMouseOver={handleChangeShowMenuDropDown} id='Gato'>
                     <a href='/'>Gatos</a>
                     <div className='bottom-bar'></div>
                 </li>

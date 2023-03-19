@@ -6,7 +6,6 @@ type Props = {
     onAction: () => void;
 }
 export const HeaderBtn = ({icon, title, onAction}: Props) => {
-    console.log(icon);
     return(
         <C.Container>
             <div>{icon}</div>
