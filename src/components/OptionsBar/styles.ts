@@ -23,7 +23,7 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     cursor: pointer;
 
     a {

@@ -1,6 +1,4 @@
-import { CachorroOption } from "../jsons/Options"
-import { GatoOption } from "../jsons/Options"
-
+import { CachorroOption, GatoOption, OutrosOption, PlanosOptions } from "../jsons/Options";
 
 export const getProductOptions = (option: string) => {
     if (option != '') {
@@ -11,8 +9,14 @@ export const getProductOptions = (option: string) => {
             case GatoOption.name:
                 return GatoOption;
                 break;
+            case OutrosOption.name:
+                return OutrosOption;
+                break;
+            case PlanosOptions.name:
+                return PlanosOptions;
+                break;
             default:
-                return CachorroOption;
+                return undefined;
                 break;
         }
     }

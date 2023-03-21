@@ -4,7 +4,6 @@ import { ReactComponent as ArrowRightIcon } from '../../svgs/arrow-right.svg';
 import { useEffect } from 'react';
 import { getProductOptions } from '../../helpers/getProductOptions';
 import { OptionTypes } from '../../types/OptionTypes';
-import { getMarginLeftMenuDD } from '../../helpers/getMarginLeftMenuDD';
 
 type Props = {
     option: string;
@@ -13,10 +12,8 @@ type Props = {
 }
 export const MenuDropDown = ({ option, showMenuDD, setShowMenuDD }: Props) => {
     const [optionList, setOptionList] = useState<OptionTypes>();
-    const [marginLeft, setMarginLeft] = useState(0);
 
     useEffect(() => {
-        setMarginLeft(getMarginLeftMenuDD(option));
         setOptionList(getProductOptions(option));
     }, [option]);
 
@@ -25,7 +22,6 @@ export const MenuDropDown = ({ option, showMenuDD, setShowMenuDD }: Props) => {
             showMenuDD={showMenuDD}
             onMouseOver={e => setShowMenuDD(true)}
             onMouseLeave={e => setShowMenuDD(false)}
-            marginLeft={marginLeft}
         >
             <ul className='menuDD-Options'>
                 {optionList && optionList.products.map((item, index) => (

@@ -4,46 +4,63 @@ import { OptionTypes } from '../../types/OptionTypes';
 import { MenuDropDown } from '../MenuDropDown';
 import * as C from './styles';
 
-type Props = {
-    showMenuDD: boolean;
-    setShowMenuDD: (showMenuDD: boolean) => void;
-    menuName: string;
-    setMenuName: (menuName: string) => void;
-    setOptionList: (optionList: OptionTypes) => void;
-}
-export const OptionsBar = ({ showMenuDD, setShowMenuDD, menuName, setMenuName, setOptionList }: Props) => {
+export const OptionsBar = () => {
+    const [menuName, setMenuName] = useState('');
+    const [showMenuDD, setShowMenuDD] = useState(false);
 
     const handleChangeShowMenuDropDown = (e: React.MouseEvent<HTMLLIElement>) => {
         setShowMenuDD(true);
         const target = e.currentTarget as HTMLLIElement;
-        //console.log(target.id);
         setMenuName(target.id);
-
-        let aux = getProductOptions(menuName);
-        if (aux !== undefined) {
-            setOptionList(aux);
-        }
     }
 
     return (
         <C.Container>
             <ul>
-                <li onMouseOver={handleChangeShowMenuDropDown} id='Cachorro'>
+                <li
+                    onMouseOver={handleChangeShowMenuDropDown}
+                    onMouseLeave={e => setShowMenuDD(false)}
+                    id='Cachorro'
+                >
                     <a href='/'>Cachorro</a>
                     <div className='bottom-bar'></div>
-                    <MenuDropDown
-                        option={menuName}
-                        showMenuDD={showMenuDD}
-                        setShowMenuDD={setShowMenuDD}
-                    />
+                    {menuName === 'Cachorro' &&
+                        <MenuDropDown
+                            option={menuName}
+                            showMenuDD={showMenuDD}
+                            setShowMenuDD={setShowMenuDD}
+                        />
+                    }
                 </li>
-                <li onMouseOver={handleChangeShowMenuDropDown} id='Gato'>
+                <li
+                    onMouseOver={handleChangeShowMenuDropDown}
+                    onMouseLeave={e => setShowMenuDD(false)}
+                    id='Gato'
+                >
                     <a href='/'>Gatos</a>
                     <div className='bottom-bar'></div>
+                    {menuName === 'Gato' &&
+                        <MenuDropDown
+                            option={menuName}
+                            showMenuDD={showMenuDD}
+                            setShowMenuDD={setShowMenuDD}
+                        />
+                    }
                 </li>
-                <li>
+                <li
+                    onMouseOver={handleChangeShowMenuDropDown}
+                    onMouseLeave={e => setShowMenuDD(false)}
+                    id='Outros'
+                >
                     <a href='/'>Outros pets</a>
                     <div className='bottom-bar'></div>
+                    {menuName === 'Outros' &&
+                        <MenuDropDown
+                            option={menuName}
+                            showMenuDD={showMenuDD}
+                            setShowMenuDD={setShowMenuDD}
+                        />
+                    }
                 </li>
                 <li>
                     <a href='/'>Marcas</a>
@@ -53,9 +70,20 @@ export const OptionsBar = ({ showMenuDD, setShowMenuDD, menuName, setMenuName, s
                     <a href='/'>Outlet</a>
                     <div className='bottom-bar'></div>
                 </li>
-                <li>
+                <li
+                    onMouseOver={handleChangeShowMenuDropDown}
+                    onMouseLeave={e => setShowMenuDD(false)}
+                    id='Planos'
+                >
                     <a href='/'>Plano de Saúde <span>NOVO</span></a>
                     <div className='bottom-bar'></div>
+                    {menuName === 'Planos' &&
+                        <MenuDropDown
+                            option={menuName}
+                            showMenuDD={showMenuDD}
+                            setShowMenuDD={setShowMenuDD}
+                        />
+                    }
                 </li>
                 <li>
                     <a href='/'>Serviços</a>
