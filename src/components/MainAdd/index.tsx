@@ -21,15 +21,6 @@ export const MainAdd = () => {
         return () => clearTimeout(timerRef.current);
     }, [cPosition]);
 
-    /*setInterval(() => {
-        if (cPosition) {
-            setCPosition(false);
-        } else {
-            setCPosition(true);
-        }
-        //cPosition ? setCPosition(false) : setCPosition(true);
-    }, 4000);*/
-
     return (
         <C.container>
             {!cPosition &&

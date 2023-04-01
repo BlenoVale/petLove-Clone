@@ -1,6 +1,6 @@
 import * as C from './styles';
 import Carousel from 'react-elastic-carousel';
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { ReactComponent as ArrowLeft } from '../../svgs/arrow-left.svg'
 import { ReactComponent as ArrowRight } from '../../svgs/arrow-right.svg'
@@ -13,6 +13,7 @@ type Props = {
     slides: slide[];
 }
 export const MainBanner = ({ slides }: Props) => {
+    const timerRef = useRef(0);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const goToPrevious = () => {
@@ -21,19 +22,30 @@ export const MainBanner = ({ slides }: Props) => {
         setCurrentIndex(newIndex);
     }
 
-    const goToNext = () => {
+    const goToNext = useCallback(() => {
         const isLastSlide = currentIndex === (slides.length - 1);
         const newIndex = isLastSlide ? 0 : currentIndex + 1;
         setCurrentIndex(newIndex);
-    }
+    }, [currentIndex, slides]);
+
+    useEffect(() => {
+        if (timerRef.current) {
+            clearTimeout(timerRef.current);
+        }
+        timerRef.current = window.setTimeout(() => {
+            goToNext();
+        }, 2000);
+
+        return () => clearTimeout(timerRef.current);
+    }, [goToNext]);
 
     return (
-        <C.Container slide={slides[currentIndex].url}>
-            <div className='bannerImg' />
-            <div className='arrowArea'>
-                <div className='arrowIcon' onClick={goToPrevious}><ArrowLeft /></div>
-                <div className='arrowIcon' onClick={goToNext}><ArrowRight /></div>
-            </div>
+        <C.Container>
+            <div className='arrowIcon previous' onClick={goToPrevious}><ArrowLeft /></div>
+            {slides.map((item, index)=>(
+                <C.BannerImg key={index} slide={item.url}/>
+            ))}
+            <div className='arrowIcon next' onClick={goToNext}><ArrowRight /></div>
         </C.Container>
     );
 }
