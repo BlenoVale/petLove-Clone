@@ -1,5 +1,4 @@
 import * as C from './styles';
-import Carousel from 'react-elastic-carousel';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { ReactComponent as ArrowLeft } from '../../svgs/arrow-left.svg'
@@ -14,6 +13,7 @@ type Props = {
 }
 export const MainBanner = ({ slides }: Props) => {
     const timerRef = useRef(0);
+    const bannerItems = useRef<HTMLInputElement>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const goToPrevious = () => {
@@ -39,12 +39,26 @@ export const MainBanner = ({ slides }: Props) => {
         return () => clearTimeout(timerRef.current);
     }, [goToNext]);
 
+    useEffect(()=>{
+        if(currentIndex === 0) {
+            bannerItems.current?.scrollTo(0, 0);
+        } else if (currentIndex === 1) {
+            bannerItems.current?.scrollTo(952, 0);
+        } else if (currentIndex === 2) {
+            bannerItems.current?.scrollTo(1904, 0);
+        }
+    },[currentIndex]);
+
+    //bannerItems.current?.scrollTo(952, 0);
+
     return (
         <C.Container>
             <div className='arrowIcon previous' onClick={goToPrevious}><ArrowLeft /></div>
-            {slides.map((item, index)=>(
-                <C.BannerImg key={index} slide={item.url}/>
-            ))}
+            <div className='bannerItems' ref={bannerItems}>
+                {slides.map((item, index) => (
+                    <img src={item.url} />
+                ))}
+            </div>
             <div className='arrowIcon next' onClick={goToNext}><ArrowRight /></div>
         </C.Container>
     );

@@ -5,7 +5,19 @@ flex: 1;
 position: relative;
 background-color: #f3eee8;
 border-radius: 8px;
-overflow: hidden;
+display: flex;
+
+    .bannerItems {
+        flex: 1;
+        display: flex;
+        overflow: hidden;
+        transition: all ease 0.5s;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
 
     .arrowIcon {
         width: 34px;
@@ -38,12 +50,4 @@ overflow: hidden;
         right: 0;
         bottom: 45%;
     }
-`;
-
-export const BannerImg = styled.div<{slide: string}>`
-width: 100%;
-height: 100%;
-background-image: url(${props => props.slide});
-background-position: center;
-background-size: cover;
 `;

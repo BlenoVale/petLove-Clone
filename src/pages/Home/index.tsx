@@ -12,9 +12,9 @@ import { MainBanner } from '../../components/MainBanner';
 
 export const Home = () => {
     const [bannerItems, setBannerItems] = useState([
-        {url: './assets/carrouselBanner/banner01.jpg'},
-        {url: './assets/carrouselBanner/banner02.jpg'},
-        {url: './assets/carrouselBanner/banner03.jpg'}
+        {url: './assets/carrouselBanner/banner01.webp'},
+        {url: './assets/carrouselBanner/banner02.webp'},
+        {url: './assets/carrouselBanner/banner03.webp'}
     ]);
 
     return (
