@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { getProductOptions } from '../../helpers/getProductOptions';
-import { OptionTypes } from '../../types/OptionTypes';
 import { MenuDropDown } from '../MenuDropDown';
 import * as C from './styles';
 

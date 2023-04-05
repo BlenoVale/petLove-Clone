@@ -11,7 +11,8 @@ display: flex;
         flex: 1;
         display: flex;
         overflow: hidden;
-        transition: all ease 0.5s;
+        transition: all ease 3s;
+        scroll-behavior: smooth;
 
         img {
             max-width: 100%;

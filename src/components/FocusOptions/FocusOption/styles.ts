@@ -8,8 +8,8 @@ export const Container = styled.div`
     cursor: pointer;
 
     .iconArea {
-        width: 60px;
-        height: 60px;
+        min-width: 58px;
+        min-height: 58px;
         display: flex;
         justify-content: center;
         align-items: center;

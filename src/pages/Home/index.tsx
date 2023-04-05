@@ -9,6 +9,7 @@ import { ReactComponent as CheckHeartIcon } from '../../svgs/check-heart.svg';
 import { FocusOptions } from '../../components/FocusOptions';
 import { MainAdd } from '../../components/MainAdd';
 import { MainBanner } from '../../components/MainBanner';
+import { ServiceCarousel } from '../../components/ServiceCarousel';
 
 export const Home = () => {
     const [bannerItems, setBannerItems] = useState([
@@ -26,7 +27,7 @@ export const Home = () => {
                 </C.BannerArea>
 
                 <FocusOptions />
-
+                <ServiceCarousel />
 
             </C.Container>
         </Theme>

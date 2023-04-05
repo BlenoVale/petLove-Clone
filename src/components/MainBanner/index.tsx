@@ -17,12 +17,18 @@ export const MainBanner = ({ slides }: Props) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const goToPrevious = () => {
+        /*if (bannerItems.current){
+            bannerItems.current.scrollLeft -= bannerItems.current?.offsetWidth;
+        }*/
         const isFirstSlide = currentIndex === 0;
         const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
         setCurrentIndex(newIndex);
     }
 
     const goToNext = useCallback(() => {
+        /*if (bannerItems.current){
+            bannerItems.current.scrollLeft += bannerItems.current?.offsetWidth;
+        }*/
         const isLastSlide = currentIndex === (slides.length - 1);
         const newIndex = isLastSlide ? 0 : currentIndex + 1;
         setCurrentIndex(newIndex);
@@ -40,6 +46,7 @@ export const MainBanner = ({ slides }: Props) => {
     }, [goToNext]);
 
     useEffect(()=>{
+        console.log(bannerItems.current?.offsetWidth);
         if(currentIndex === 0) {
             bannerItems.current?.scrollTo(0, 0);
         } else if (currentIndex === 1) {
@@ -48,8 +55,6 @@ export const MainBanner = ({ slides }: Props) => {
             bannerItems.current?.scrollTo(1904, 0);
         }
     },[currentIndex]);
-
-    //bannerItems.current?.scrollTo(952, 0);
 
     return (
         <C.Container>
