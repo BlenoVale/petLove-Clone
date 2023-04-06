@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-padding: 0 20px 20px 20px;
+padding: 0 30px 20px 30px;
 
 .productCarousel-top-area {
     width: 100%;
