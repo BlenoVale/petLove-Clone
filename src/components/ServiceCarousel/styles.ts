@@ -49,6 +49,10 @@ padding: 0 20px 40px 20px;
                     width: 32px;
                     height: 32px;
                 }
+
+                &:hover {
+                    background-color: #4939ac;
+                }
             }
         }
     }

@@ -10,6 +10,7 @@ import { FocusOptions } from '../../components/FocusOptions';
 import { MainAdd } from '../../components/MainAdd';
 import { MainBanner } from '../../components/MainBanner';
 import { ServiceCarousel } from '../../components/ServiceCarousel';
+import { ProducCarousel } from '../../components/ProductCarousel';
 
 export const Home = () => {
     const [bannerItems, setBannerItems] = useState([
@@ -28,6 +29,7 @@ export const Home = () => {
 
                 <FocusOptions />
                 <ServiceCarousel />
+                <ProducCarousel />
 
             </C.Container>
         </Theme>
