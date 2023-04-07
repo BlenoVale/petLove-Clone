@@ -11,6 +11,7 @@ import { MainAdd } from '../../components/MainAdd';
 import { MainBanner } from '../../components/MainBanner';
 import { ServiceCarousel } from '../../components/ServiceCarousel';
 import { ProducCarousel } from '../../components/ProductCarousel';
+import { Offers } from '../../components/Offers';
 
 export const Home = () => {
     const [bannerItems, setBannerItems] = useState([
@@ -29,8 +30,9 @@ export const Home = () => {
 
                 <FocusOptions />
                 <ServiceCarousel />
-                <ProducCarousel />
-
+                <ProducCarousel title={'Seu pet também pode gostar 💜'}/>
+                <Offers title={'Ofertas em Destaque'}/>
+                <ProducCarousel title={'Produtos que você só encontra na Petlove!'}/>
             </C.Container>
         </Theme>
     );

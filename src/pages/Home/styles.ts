@@ -2,7 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 margin: 0 auto;
-width: 1312px;
+max-width: 1312px;
+
+@media screen and (max-width: 1312px) {
+    max-width: 1250px;
+}
 `;
 
 export const BannerArea = styled.div`

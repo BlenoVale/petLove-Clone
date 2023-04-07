@@ -12,7 +12,6 @@ export const Area = styled.div`
 
 export const Page = styled.div`
 margin: auto;
-max-height: 1352px;
 display: flex;
 min-height: 100vh;
 `;
