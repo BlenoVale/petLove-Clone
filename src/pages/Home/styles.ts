@@ -20,6 +20,6 @@ padding: 0 20px 40px 20px;
 
     .breed-categories-area {
         display: flex;
-        gap: 80px;
+        gap: 70px;
     }
 `;

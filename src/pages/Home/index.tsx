@@ -16,6 +16,7 @@ import { BrandCarousel } from '../../components/BrandCarousel';
 import { BreedType } from '../../types/BreedType';
 import { getBreedsCat, getBreedsDog } from '../../helpers/getBreeds';
 import { Category } from '../../components/Category';
+import { Tips } from '../../components/Tips';
 
 export const Home = () => {
     const [bannerItems, setBannerItems] = useState([
@@ -34,20 +35,19 @@ export const Home = () => {
                     <MainBanner slides={bannerItems} />
                     <MainAdd />
                 </C.BannerArea>
-
                 <FocusOptions />
                 <ServiceCarousel />
                 <ProducCarousel title={'Seu pet também pode gostar 💜'} />
                 <Offers title={'Ofertas em Destaque'} />
                 <ProducCarousel title={'Produtos que você só encontra na Petlove!'} />
                 <BrandCarousel title={'Principais marcas'} />
-
                 <C.BreedArea>
                     <div className='breed-categories-area'>
                         <Category title={'Raças de cachorro'} categories={dogBreeds} />
                         <Category title={'Raças de gato'} categories={catBreeds} />
                     </div>
                 </C.BreedArea>
+                <Tips />
             </C.Container>
         </Theme>
     );
