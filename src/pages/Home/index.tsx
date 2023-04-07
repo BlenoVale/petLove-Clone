@@ -12,27 +12,29 @@ import { MainBanner } from '../../components/MainBanner';
 import { ServiceCarousel } from '../../components/ServiceCarousel';
 import { ProducCarousel } from '../../components/ProductCarousel';
 import { Offers } from '../../components/Offers';
+import { BrandCarousel } from '../../components/BrandCarousel';
 
 export const Home = () => {
     const [bannerItems, setBannerItems] = useState([
-        {url: './assets/carrouselBanner/banner01.webp'},
-        {url: './assets/carrouselBanner/banner02.webp'},
-        {url: './assets/carrouselBanner/banner03.webp'}
+        { url: './assets/carrouselBanner/banner01.webp' },
+        { url: './assets/carrouselBanner/banner02.webp' },
+        { url: './assets/carrouselBanner/banner03.webp' }
     ]);
 
     return (
         <Theme>
             <C.Container>
                 <C.BannerArea>
-                    <MainBanner slides={bannerItems}/>
+                    <MainBanner slides={bannerItems} />
                     <MainAdd />
                 </C.BannerArea>
 
                 <FocusOptions />
                 <ServiceCarousel />
-                <ProducCarousel title={'Seu pet também pode gostar 💜'}/>
-                <Offers title={'Ofertas em Destaque'}/>
-                <ProducCarousel title={'Produtos que você só encontra na Petlove!'}/>
+                <ProducCarousel title={'Seu pet também pode gostar 💜'} />
+                <Offers title={'Ofertas em Destaque'} />
+                <ProducCarousel title={'Produtos que você só encontra na Petlove!'} />
+                <BrandCarousel title={'Principais marcas'} />
             </C.Container>
         </Theme>
     );
