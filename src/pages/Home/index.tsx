@@ -13,6 +13,9 @@ import { ServiceCarousel } from '../../components/ServiceCarousel';
 import { ProducCarousel } from '../../components/ProductCarousel';
 import { Offers } from '../../components/Offers';
 import { BrandCarousel } from '../../components/BrandCarousel';
+import { BreedType } from '../../types/BreedType';
+import { getBreedsCat, getBreedsDog } from '../../helpers/getBreeds';
+import { Category } from '../../components/Category';
 
 export const Home = () => {
     const [bannerItems, setBannerItems] = useState([
@@ -20,6 +23,9 @@ export const Home = () => {
         { url: './assets/carrouselBanner/banner02.webp' },
         { url: './assets/carrouselBanner/banner03.webp' }
     ]);
+
+    const [dogBreeds, setDogsBreeds] = useState<BreedType[]>(getBreedsDog);
+    const [catBreeds, setCatBreeds] = useState<BreedType[]>(getBreedsCat);
 
     return (
         <Theme>
@@ -35,6 +41,13 @@ export const Home = () => {
                 <Offers title={'Ofertas em Destaque'} />
                 <ProducCarousel title={'Produtos que você só encontra na Petlove!'} />
                 <BrandCarousel title={'Principais marcas'} />
+
+                <C.BreedArea>
+                    <div className='breed-categories-area'>
+                        <Category title={'Raças de cachorro'} categories={dogBreeds} />
+                        <Category title={'Raças de gato'} categories={catBreeds} />
+                    </div>
+                </C.BreedArea>
             </C.Container>
         </Theme>
     );
