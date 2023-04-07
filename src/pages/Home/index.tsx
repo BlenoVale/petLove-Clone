@@ -17,6 +17,7 @@ import { BreedType } from '../../types/BreedType';
 import { getBreedsCat, getBreedsDog } from '../../helpers/getBreeds';
 import { Category } from '../../components/Category';
 import { Tips } from '../../components/Tips';
+import { HomeRegister } from '../../components/HomeRegister';
 
 export const Home = () => {
     const [bannerItems, setBannerItems] = useState([
@@ -48,6 +49,7 @@ export const Home = () => {
                     </div>
                 </C.BreedArea>
                 <Tips />
+                <HomeRegister />
             </C.Container>
         </Theme>
     );
